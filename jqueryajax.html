@@ -1,0 +1,112 @@
+                                                   <!-------------------------AJAX METHOD--------------------------------------->
+
+<!--ajax post method-->
+<form action="/employee" method="POST">
+    <label for="role">role</label>
+    <input type="text" id="role" name="role">
+     <Button type="submit" id="submit">Submit</Button>
+     <button type="reset">Reset</button>
+ </form>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script>
+     $(document).ready(function () {
+     $("#submit").click(function () {
+     var role=$('#role').val();
+     $.ajax({
+          type: 'POST',
+          url: '/employeerole',
+          data: {role:role},
+          dataType: 'json',
+          success: function (data, textStatus, xhr) {
+             console.log(data)
+         },
+         error: function (xhr, textStatus, errorThrown) {
+              console.log('Error in Operation');
+         }
+        })
+       });
+        });
+       
+ </script>
+ 
+ <!-- ajax get method-->
+ <table id="example">
+     <thead>
+         <tr>
+             <th>Role</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td></td>
+         </tr>
+     </tbody>
+ 
+ </table>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script>
+     $(document).ready(function () {
+     table = $('#example').DataTable({
+         ajax: {
+             dataType: 'json',
+             method: 'GET',
+             url:"/employeerole" ,
+             dataSrc: 'results'
+         },
+         columns: [
+             {
+                 data: 'role'
+             },
+         ]
+     });
+     });
+ </script>
+ 
+ <!--.serializeArray().-->
+ <form>
+     <label for="">Name</label>
+     <input type="text" name="name">
+     <label for="">Address</label>
+    
+     <select name="name" id="">
+         <option value="1">1</option>
+     </select>
+     
+     
+     <button type="submit" value="submit">submit</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+     $( "form" ).submit(function( event ) {
+   console.log( $( this ).serializeArray() );
+   event.preventDefault();
+ });
+  </script>  
+  
+ <!--.serialize()-->
+ <form>
+   <select name="select" id="">
+       <option value="option1">option1</option>
+       <option value="option2">option2</option>
+       <option value="option3">option3</option>
+   </select>
+   <input type="radio" name="radio" value="radio1">
+   <input type="radio" name="radio" value="radio2">
+   <input type="checkbox" name="checkbox" value="check">
+   <input type="text" name="anil" value="anil">
+ </form>
+  
+ <p><tt id="results"></tt></p>
+   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ <script>
+   function showValues() {
+     var str = $( "form" ).serialize();
+     $( "#results" ).text( str );
+   }
+   $( "input[type='checkbox'], input[type='radio']" ).on( "click", showValues );
+   $( "select" ).on( "change", showValues );
+   showValues();
+ </script>
+ 
+ 
+ 

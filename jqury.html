@@ -1,0 +1,139 @@
+                                                   <!-------------------------------JQUERY------------------------------------>
+<!--$.trim()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    console.log($.trim("    lots of extra whitespace                                                  "))
+</script>
+
+<!--$.each()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $.each(["anil", "raj",], function (a, r) {
+        console.log("id :" + a + ",name:" + r)
+    })
+    $.each({ name: "anil", age: 22 }, function (a, r) {
+        console.log(a + ":" + r)
+    })
+
+</script>
+
+<!--$.inArray()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var myArray = [1, 2, 3, 5];
+    if ($.inArray(1, myArray) !== 1) {
+        console.log("true")//check the index value
+    } else {
+        console.log("false")
+    }
+</script>
+
+<!--$.extend()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var firstname = { name: "anil", age: "22" };
+    var secondname = { name: "raj" };
+
+    var fullname = $.extend(firstname, secondname);
+
+    console.log(firstname.name);
+    console.log(firstname.age);
+    console.log(secondname.name);
+    console.log(fullname.name); 
+</script>
+
+<!--$.proxy()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button id="foo">click</button>
+<p></p>
+<script>
+    var objPerson = {
+        name: "anilraj",
+        age: 22,
+        test: function () {
+            $("p").after("Name: " + this.name + "<br> Age: " + this.age);
+        }
+    };
+    $("button").click($.proxy(objPerson, "test"));
+</script>
+
+<!--$.test()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    console.log($.type(Number(88)))
+    console.log($.type([]))
+</script>
+
+<!-- each() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<select name="" id="">
+    <option value="anil1">anil</option>
+    <option value="raj1">raj</option>
+</select>
+<script>
+    $("option").each(function (index, element) {
+        console.log($(this).val());//all values
+    });
+</script>
+
+<!--attr()-->
+<a href=""></a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    //setter
+    $("a").attr("href", "allMyHrefsAreTheSameNow.html");
+
+    $("a").attr({
+        title: "all titles are the same too!",
+        href: "somethingNew.html"
+    });
+    //getter
+    console.log($("a").attr("href"))
+</script>
+
+<!--add text -->
+<h1></h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>$("h1").html("hello world");</script>
+
+<!-- manipulating elements -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p></p><br>
+<p></p><br>
+<p></p>
+<ul id="myList">
+    <li>anilraj</li>
+    <li>anil</li>
+    <li>anil</li>
+</ul>
+
+<script>
+    //set html tag
+    $(" p:first").html("New <strong>first</strong> paragraph!"); $(" p:last").html("New <strong>first</strong> paragraph!");
+    //append
+    $("#myList li:first").appendTo("#myList");//last
+    //cloning
+    $("#myList li:first").clone().appendTo("#myList");//duplicate
+</script>
+
+<!-- count the dom element -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<h1>anil</h1>
+<script>
+    var headings = $("h1");
+    alert(headings.length);
+</script>
+
+<!-- css  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<h1>anil</h1>
+<script>
+    $( "h1" ).width( "50px" );
+$( "h1" ).height( "500px" );
+$( "h1" ).css( "fontSize", "1000px" );
+</script>
+
+
+
+ 
