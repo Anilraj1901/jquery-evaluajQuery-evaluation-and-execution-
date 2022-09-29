@@ -1,0 +1,1164 @@
+                                                   <!-------------------------------JQUERY------------------------------------>
+<!--$.trim()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    console.log($.trim("    lots of extra whitespace                                                  "))
+</script>
+
+<!--$.each()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $.each(["anil", "raj",], function (a, r) {
+        console.log("id :" + a + ",name:" + r)
+    })
+    $.each({ name: "anil", age: 22 }, function (a, r) {
+        console.log(a + ":" + r)
+    })
+
+</script>
+
+<!--$.inArray()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var myArray = [1, 2, 3, 5];
+    if ($.inArray(1, myArray) !== 1) {
+        console.log("true")//check the index value
+    } else {
+        console.log("false")
+    }
+</script>
+
+<!--$.extend()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var firstname = { name: "anil", age: "22" };
+    var secondname = { name: "raj" };
+
+    var fullname = $.extend(firstname, secondname);
+
+    console.log(firstname.name);
+    console.log(firstname.age);
+    console.log(secondname.name);
+    console.log(fullname.name); 
+</script>
+
+<!--$.proxy()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button id="foo">click</button>
+<p></p>
+<script>
+    var objPerson = {
+        name: "anilraj",
+        age: 22,
+        test: function () {
+            $("p").after("Name: " + this.name + "<br> Age: " + this.age);
+        }
+    };
+    $("button").click($.proxy(objPerson, "test"));
+</script>
+
+<!--$.test()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    console.log($.type(Number(88)))
+    console.log($.type([]))
+</script>
+
+<!-- each() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<select name="" id="">
+    <option value="anil1">anil</option>
+    <option value="raj1">raj</option>
+</select>
+<script>
+    $("option").each(function (index, element) {
+        console.log($(this).val());//all values
+    });
+</script>
+
+<!--attr()-->
+<a href=""></a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    //setter
+    $("a").attr("href", "allMyHrefsAreTheSameNow.html");
+
+    $("a").attr({
+        title: "all titles are the same too!",
+        href: "somethingNew.html"
+    });
+    //getter
+    console.log($("a").attr("href"))
+</script>
+
+<!--add text -->
+<h1></h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>$("h1").html("hello world");</script>
+
+<!-- manipulating elements -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p></p><br>
+<p></p><br>
+<p></p>
+<ul id="myList">
+    <li>anilraj</li>
+    <li>anil</li>
+    <li>anil</li>
+</ul>
+
+<script>
+    //set html tag
+    $(" p:first").html("New <strong>first</strong> paragraph!"); $(" p:last").html("New <strong>first</strong> paragraph!");
+    //append
+    $("#myList li:first").appendTo("#myList");//last
+    //cloning
+    $("#myList li:first").clone().appendTo("#myList");//duplicate
+</script>
+
+<!-- count the dom element -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<h1>anil</h1>
+<script>
+    var headings = $("h1");
+    alert(headings.length);
+</script>
+
+<!-- css  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<h1>anil</h1>
+<script>
+    $( "h1" ).width( "50px" );
+$( "h1" ).height( "500px" );
+$( "h1" ).css( "fontSize", "1000px" );
+</script>
+
+
+                                                         <!---------------------JQUERY EVENTS-------------------------- -->
+<!--hide on one click the html tags-->
+<p>click</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("p").click(function () {
+            $(this).hide();
+        });
+    });
+</script>
+
+<!--hide on two click the html tags-->
+<p>click</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("p").dblclick(function () {
+            $(this).hide()
+        });
+    })
+</script>
+
+<!-- /mouse touch on the html tags -->
+<input type="text" id="p1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#p1").mouseenter(function () {
+            alert("You entered p1!");
+        });
+    });
+
+</script>
+
+<!-- mouse leave alert -->
+<input type="text" id="p1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#p1").mouseleave(function(){
+alert("Bye! You now leave p1!");
+});
+});
+</script>
+
+<!-- // mousedown alert -->
+<input type="text" id="p1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#p1").mousedown(function(){
+alert("Mouse down over p1!");
+});
+});
+</script>
+
+<!-- / mouseup hide -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text" class="class">
+<script>
+    $(document).ready(function(){
+$(".class").mouseup(function(){
+$(this).hide()
+})
+})
+</script>
+
+<!-- // two functins on single tag -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text" class="class">
+<script>
+$(document).ready(function(){
+    $("input").hover(function(){
+    $(this).hide()
+    },
+    function(){
+    alert("hydgbfs")
+    }
+    
+    )
+    })</script>
+
+<!--/ hover the input field  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text">
+<script>
+    $(document).ready(function(){
+$("input[type=text]").focus(function(){
+$(this).css("background-color","yellow");
+})
+$("input[type=text]").blur(function(){
+$(this).css("background-color","yellow");
+})
+})
+</script>
+
+<!-- on click -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>hide</p>
+<script>
+    $(document).ready(function(){
+$("p").on("click",function(){
+$(this).hide()
+})
+})
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>Anil is a bad boy</p>
+<script>
+    $(document).ready(function(){
+$("p").on({
+mouseenter:function(){
+$(this).css("background-color","blue")
+},
+mouseleave:function(){
+$(this).css("background-color","black")
+},
+click:function(){
+$(this).css("background-color","red")
+}
+})
+})
+</script>
+
+<!--  hide another -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p>blue</p>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+$("p").css("background-color","blue")
+})
+})
+</script>
+
+<!-- // toggle hide or show -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p>blue</p>
+<script>
+    $(document).ready(function(){
+$("button").click(function(){
+$("p").toggle(4)
+})
+});
+</script>
+
+<!--  add new element -->
+<button class="alert">button</button>
+<button class="alert">button</button>
+<button class="alert">button</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$( document ).ready(function(){
+$( "button.alert" ).on( "click", function() {
+alert( "A button with the alert class was clicked!" );
+});
+$( "<button class='alert' id='anil'>Alert!</button>" ).appendTo( document.body );
+});
+</script>
+
+<!-- // run only once -->
+<p>click</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$( document ).ready(function(){
+$( "p" ).one( "click", firstClick );
+
+function firstClick() {
+alert( "You just clicked this for the first time!" );
+$( this ).click( function() { alert( "You have clicked this before!" ); } );
+}
+});
+</script>
+
+
+
+<!-- //bind multiple events -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text" id=""></input>
+<script>
+$( document ).ready(function(){
+$( "input[id]" ).on( "focus mouseover keydown", firstEvent);
+function firstEvent( eventObject ) {
+console.log( "A " + eventObject.type + " event occurred for the first time on the input with id " + this.id );
+}
+});
+</script>
+
+<!-- // Binding multiple events with different handlers -->
+<p>click</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$( document ).ready(function(){
+$( "p" ).on({
+"click": function() { console.log( "clicked!" ); },
+"mouseover": function() { console.log( "hovered!" ); }
+});
+});
+</script>
+
+<!--add new element-->
+<button class="alert">button</button>
+<button class="alert">button</button>
+<button class="alert">button</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("button.alert").on("click", function () {
+            alert("A button with the alert class was clicked!");
+        });
+        $("<button class='alert'  id='anil'>Alert!</button>").appendTo(document.body);
+    });
+</script>
+
+<!--run only once-->
+<p>click</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("p").one("click", firstClick);
+
+        function firstClick() {
+            alert("You just clicked this for the first time!");
+
+
+            $(this).click(function () { alert("You have clicked this before!"); });
+        }
+    });
+</script>
+
+<!-- multiple events-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text" id=""></input>
+<script>
+    $(document).ready(function () {
+        $("input[id]").on("focus mouseover keydown", firstEvent);
+
+        function firstEvent(eventObject) {
+            console.log("A " + eventObject.type + " event occurred for the first time on the input with id " + this.id);
+        }
+    });
+</script>
+
+<!--add eventlistener-->
+<button id="helloBtn">Say hello</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var helloBtn = document.getElementById("helloBtn");
+
+        helloBtn.addEventListener("click", function (event) {
+            alert("Hello.");
+        },);
+    });
+</script>
+
+<!--many event with single handler-->
+<div>
+    <button id="helloBtn">Say hello</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    $("div").on("click mouseleave", function () {
+        console.log("mouse hovered over or left a div");
+    });
+</script>
+
+<!--many event many handler-->
+<div>
+    <button id="helloBtn">Say hello</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("div").on({
+        mouseenter: function () {
+            console.log("hovered over a div");
+        },
+        mouseleave: function () {
+            console.log("mouse left a div");
+        },
+        click: function () {
+            console.log("clicked on a div");
+        }
+    });
+</script>
+
+<!--disconnecting events-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>click me</p>
+<script>
+    // Unbinding a particular click handler, using a reference to the function
+    var foo = function () {
+        console.log("foo");
+    };
+
+    var bar = function () {
+        console.log("bar");
+    };
+
+    $("p").on("click", foo)
+
+    // foo will stay bound to the click event
+    $("p").off("click", bar);
+</script>
+
+<!--passing data-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>click me</p>
+<script>
+    $("p").on("dblclick", {
+        anil: "raj"
+    },
+        function (event) {
+            console.log(event.data.anil)
+        })
+</script>
+
+<!--unorder list tag list events-->
+<ul>eee
+    <li>fff</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("ul").on("click", "li", function () {
+        console.log("Something in a <ul> was clicked, and we detected that it was an <li> element.");
+    });
+</script>
+
+<!--prevent open the link-->
+<html>
+
+<body>
+    <div id="container">
+        <ul id="list">
+            <li><a href="http://domain1.com">Item #1</a></li>
+            <li><a href="/local/path/1">Item #2</a></li>
+            <li><a href="/local/path/2">Item #3</a></li>
+            <li><a href="http://domain4.com">Item #4</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#list ").on("click", function (event) {
+        event.preventDefault();
+        console.log($(this).text());
+    })
+</script>
+
+<!-- get text,add new element and preventDefault-->
+<div id="container">
+    <ul id="list">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>...</li>
+        <li><a href='http://newdomain.com'>Item #6</a></li>
+    </ul>
+</div>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script>
+    $( "#list li" ).bind( "click", function( event ) {
+    var elem = $( event.target );
+    console.log( elem.text() );
+});
+$( "#list" ).append( "<li><a href='http://newdomain.com'>Item #5</a></li>" );
+
+$( "#list" ).on( "click", "a", function( event ) {
+    event.preventDefault();
+    console.log( $( this ).text() );
+});
+</script>
+
+<!-- which -->
+<input type="text">
+<span></span>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+$("input").on("keyup",function(event){
+ $("span").text(event.which);
+})
+})
+</script>
+
+
+<!-- resize() -->
+<span></span>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var x = 0;
+    $(document).ready(function(){
+      $(window).resize(function(){
+        $("span").text(x += 1);
+      });
+    });
+    </script>
+
+
+<!-- scroll() -->
+<div style="border:1px solid black;width:200px;height:100px;overflow:scroll;"> sfgdsgdfshgdsh gdshsgdhjdgdggd dghdgsgdghgdshgdshdgsh gdhdsghshsghsaaadghgdhgdhsgshgd gdhdsghshsghsaaadghgdhgdhsgshgd
+gdshgsdhgdhdghshsdghgsdhgsdhsgdhgds gdshgdsadghsghthtryr gdhsghrytyrthsgd gdhsghyrhjgsfdhnjsgg sfghjsg</div>
+<span></span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    var x = 0;
+$(document).ready(function(){
+  $("div").scroll(function(){
+    $("span").text( x+= 1);
+  });
+});
+</script>
+
+<!-- select() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<input type="text" value="anil raj">
+<script>
+$(document).ready(function(){
+  $("input").select(function(){
+    alert("key was selected");
+  });
+});
+</script>
+
+<!-- submit() -->
+<input type="text">
+<button type="submit"></button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    alert("Submitted");
+  });
+});
+</script>
+
+<!-- event.delegateTarget -->
+<div style="background-color:yellow">
+    <p>fhgdshghggfjfhhhhhhhh
+    sgjhfgjgfgjfgjsfjfhhfjhsfj
+    </p>
+<button>click</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+  $("div").on("click", "button", function(event){
+    $(event.delegateTarget).css("background-color", "pink");
+  });
+});
+</script>
+
+<!-- pageX and pageY -->
+<span></span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+  $(document).mousemove(function(event){ 
+    $("span").text("X: " + event.pageX + ", Y: " + event.pageY); 
+  });
+});
+</script>
+
+<!-- timestamp() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p>jan 1 1970 from till now,time calculations in miliseconds <span></span>ms</p>
+<script>
+$(document).ready(function(){
+  $("button").click(function(event){
+    $("span").text(event.timeStamp);
+  });
+});
+</script>
+
+<!-- type() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>touch or click any thing</p>
+<div></div>
+<script>
+$(document).ready(function(){
+  $("p").on("click dblclick mouseover mouseout",function(event){
+    $("div").html("Event: " + event.type);
+  });
+});
+</script>
+
+<!-- triggerhandler() -->
+<input type="text">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("input").keyup(function(){
+        $("input").after(" Select event triggered!");
+      });
+      $("button").click(function(){
+        $("input").triggerHandler("keyup");
+      });
+    });
+</script>
+
+<!-- proxy -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p></p>
+<script>
+    $(document).ready(function(){
+      var objPerson = {
+        name: "Anil Raj",
+        age: 22,
+        test: function(){
+          $("p").after("Name: " + this.name + "<br> Age: " + this.age);
+        }
+      };
+      $("button").click($.proxy(objPerson, "test"));
+    });
+    </script>
+
+<!-- attr() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<img src="439605.jpg"  width="284" height="213">
+<button></button>
+<script>
+    $(document).ready(function(){
+  $("button").click(function(){
+    $("img").attr("width", "500");
+  });
+});
+</script>
+<!-- append()-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p>anil</p>
+<script>
+    $(document).ready(function(){
+  $("button").click(function(){
+    $("p").append(" <b> is a bad boy</b>.");
+  });
+ })
+</script>
+
+<!-- prepend() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<p>anil</p>
+<script>
+    $(document).ready(function(){
+  $("button").click(function(){
+    $("p").prepend(" <b> is a bad boy</b>.");
+  });
+ })
+</script>
+
+<!-- before() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>anil</p>
+<button>click</button>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").before("<p>Hello</p>");
+  });
+});
+</script>
+
+<!-- after() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>anil</p>
+<button>click</button>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").after("<p>Hello</p>");
+  });
+});
+</script>
+
+<!-- remove() -->
+<button>remove</button>
+<p>fgdghgfhjfdjh jgkgjjgkjgk kg gdg </p>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").remove();
+  });
+});
+</script>
+
+<!-- empty() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<div style="height:100px;background-color:blueviolet">
+    john wick
+<p>anil raj</p>
+</div>
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("div").empty();
+      });
+    });
+</script>
+
+<!-- removeclass() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<style>
+    .ab{
+        color:blue;
+    }
+</style>  
+<p class="ab">john wick</p>
+
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("p").removeClass("ab");
+      });
+    });
+</script>
+
+<!-- toggleclass() -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<style>
+    .ab{
+        color:blue;
+    }
+</style>  
+<p class="ab">john wick</p>
+
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("p").toggleClass("ab");
+      });
+    });
+</script>
+
+<!-- innerWidth,width,height,outerHeight,innerHeight,outerWidth-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<div style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue;"></div>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Width of div: " + $("div").width());
+  });
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Height of div: " + $("div").height());
+  });
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Inner width of div: " + $("div").innerWidth());
+  });//w*padding*2
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Outer height of div: " + $("div").outerHeight());
+  });//h*padding*2*border*2
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Inner height of div: " + $("div").innerHeight());
+  });//h*padding*2
+});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Outer width of div: " + $("div").outerWidth());
+  });//w*padding*2*border*2
+});
+</script>
+
+<!-- parent(),parents(),children(),parenstUntil(),find(),siblings(),next(),nextUntil(),nextAll(),prev(),prevUntil()-->
+<ul>
+    <li></li>
+    <li></li>
+    <li>list
+    <span>hh</span>
+    </li>
+    <li>list
+    <span>hh</span>
+    </li>
+    <li class="start">aa</li>
+    <li></li>
+    <li></li>
+    <li class="stop">aa</li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("span").parent().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("span").parents().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("span").parentsUntil("ul").css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("ul").children().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("ul").find("li").css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").siblings().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").next().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").nextUntil("li.stop").css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").nextAll().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").prev().css({"color": "red", "border": "2px solid red"});
+});
+
+$(document).ready(function(){
+  $("li.start").prevUntil("li.stop").css({"color": "red", "border": "2px solid red"});
+});
+</script>
+
+<!-- first,last, -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>anil</p>
+<p>anil</p>
+<p class="filter">anil</p>
+<p class="filter">anil</p>
+<p class="filter">anil</p>
+<p>anil</p>
+<p>anil</p>
+<p>anil</p>
+
+<script>
+$(document).ready(function(){
+  $(" p").first().css("background-color", "yellow");
+});
+
+$(document).ready(function(){
+  $(" p").last().css("background-color", "yellow");
+});
+
+$(document).ready(function(){
+  $("p").filter(".filter").css("background-color", "yellow");
+});
+
+$(document).ready(function(){
+  $("p").eq(1).css("background-color", "yellow");//index value
+});
+
+$(document).ready(function(){
+  $("p").not(".filter").css("background-color", "yellow");//without class
+});
+</script>
+
+
+<!-- data(),removedata(), -->
+<button id="btn1">1st click</button><br>
+<button id="btn2">2nd click</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<div></div>
+
+<script>
+    //data
+    $(document).ready(function(){
+  $("#btn1").click(function(){
+    $("div").data("greeting", "Hello World");
+    $("div").text("greeting", "Hello World");
+  });
+  $("#btn2").click(function(){
+    alert($("div").data("greeting"));
+  });
+});
+ 
+//remove data
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("div").data("greeting", "Hello World");
+      alert("Greeting is: " + $("div").data("greeting"));
+    });
+  $("#btn2").click(function(){
+    $("div").removeData("greeting");
+      alert("Greeting is: " + $("div").data("greeting"));
+  });
+});
+</script>
+
+
+
+<!-- toarray -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<ul>
+    <li>anil</li>
+    <li>naveen</li>
+    <li>sanjai</li>
+    <li>subash</li>
+</ul>
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        var i;
+        var x = $("li").toArray()
+        for (i = 0; i< x.length; i++) {
+          console.log(x[i].innerHTML);
+        }
+      });
+    });
+</script>
+
+<!-- noconflicts -->
+<button>click</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<p>anil</p>
+<script>
+    $.noConflict();
+    jQuery(document).ready(function(){
+      jQuery("button").click(function(){
+        jQuery("p").text("raj");
+      });
+    });
+</script>
+
+
+
+
+                                                  <!-----------------------EFFECTS OF JQUERY--------------------------------->
+
+<!--timeing hida and show-->
+<p>afgbh fbahggbfh fghbfhjb fjhbgfjhbg fjhbgafjkljbuiv bifbagiijh</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+
+<script>
+    $("button").on("click", function () {
+        $("p").toggle(1000);
+    })
+</script>
+
+<!--slide up and slidedown -->
+<p>cfdvdv</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("p").slideUp(800);
+    $("p").slideDown(600);
+</script>
+
+<!--fadeIn and fadeOut-->
+<p>cfdvdv</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $("p").fadeOut(1500);
+    $("p").fadeIn(750);
+</script>
+
+<!--add a button-->
+<script>
+    $("<button type='button'>anilraj</button>")
+        .text("Disable Animations")
+        .on("click", function () {
+            jQuery.fx.off = true;
+        })
+        .appendTo(document.body);
+</script>
+
+<!--hide and show with timeing-->
+<h1>anil</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $("h1").hide(500).delay(1500).show(300);
+</script>
+
+<!--opacity-->
+<h1>anil</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<button>click</button>
+<script>
+    $("button").on("click", function () {
+        $("h1").animate({ opacity: 0.25 })
+    })
+</script>
+
+                                                    <!-------------------------AJAX METHOD--------------------------------------->
+
+<!--ajax post method-->
+<form action="/employee" method="POST">
+   <label for="role">role</label>
+   <input type="text" id="role" name="role">
+    <Button type="submit" id="submit">Submit</Button>
+    <button type="reset">Reset</button>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $("#submit").click(function () {
+    var role=$('#role').val();
+    $.ajax({
+         type: 'POST',
+         url: '/employeerole',
+         data: {role:role},
+         dataType: 'json',
+         success: function (data, textStatus, xhr) {
+            console.log(data)
+        },
+        error: function (xhr, textStatus, errorThrown) {
+             console.log('Error in Operation');
+        }
+       })
+      });
+       });
+      
+</script>
+
+<!-- ajax get method-->
+<table id="example">
+    <thead>
+        <tr>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+        </tr>
+    </tbody>
+
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+    table = $('#example').DataTable({
+        ajax: {
+            dataType: 'json',
+            method: 'GET',
+            url:"/employeerole" ,
+            dataSrc: 'results'
+        },
+        columns: [
+            {
+                data: 'role'
+            },
+        ]
+    });
+    });
+</script>
+
+<!--.serializeArray().-->
+<form>
+    <label for="">Name</label>
+    <input type="text" name="name">
+    <label for="">Address</label>
+   
+    <select name="name" id="">
+        <option value="1">1</option>
+    </select>
+    
+    
+    <button type="submit" value="submit">submit</button>
+   </form>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script>
+    $( "form" ).submit(function( event ) {
+  console.log( $( this ).serializeArray() );
+  event.preventDefault();
+});
+ </script>  
+ 
+<!--.serialize()-->
+<form>
+  <select name="select" id="">
+      <option value="option1">option1</option>
+      <option value="option2">option2</option>
+      <option value="option3">option3</option>
+  </select>
+  <input type="radio" name="radio" value="radio1">
+  <input type="radio" name="radio" value="radio2">
+  <input type="checkbox" name="checkbox" value="check">
+  <input type="text" name="anil" value="anil">
+</form>
+ 
+<p><tt id="results"></tt></p>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+  function showValues() {
+    var str = $( "form" ).serialize();
+    $( "#results" ).text( str );
+  }
+  $( "input[type='checkbox'], input[type='radio']" ).on( "click", showValues );
+  $( "select" ).on( "change", showValues );
+  showValues();
+</script>
+
+
